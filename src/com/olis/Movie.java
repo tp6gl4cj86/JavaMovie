@@ -247,7 +247,7 @@ public class Movie
 			for(File file : filelist)
 			{
 				String filename = file.getName();
-				if(!filename.substring(filename.indexOf(".")+1).equals("srt"))
+				if(!filename.substring(filename.indexOf(".")+1).equals("srt") || !filename.substring(filename.indexOf(".")+1).equals("ass"))
 				{					
 					if(filename.contains(moviename))
 					{
