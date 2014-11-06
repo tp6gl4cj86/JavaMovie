@@ -48,7 +48,7 @@ public class JavaMovie extends JFrame
 	private JMenuBar                 menuBar;
 	private JTable                   table;
 
-	private final String[]           TableHeader      = new String[] { "日期", "預告", "片名", "爸", "媽", "姊", "弟", "妹" };
+	private final String[]           TableHeader      = new String[] { "日期", "預告", "片名 (點兩下播放)", "爸", "媽", "姊", "弟", "妹" };
 	private static LinkedList<Movie> mMovieList       = new LinkedList<Movie>();
 	
 	public static int                OS               = 0;
@@ -76,6 +76,7 @@ public class JavaMovie extends JFrame
 				try
 				{
 					JavaMovie frame = new JavaMovie();
+					frame.setTitle("JavaMovie");
 					frame.setVisible(true);
 				}
 				catch (Exception e)
@@ -244,6 +245,7 @@ public class JavaMovie extends JFrame
 		Menu_Fun.add(Menu_Fun_AutoDirectory);
 		
 		final JLabel AutoDirectoryPath = new JLabel(Movie.getAutoDirectoryPath());
+		AutoDirectoryPath.setFont(font);
 		menuBar.add(AutoDirectoryPath);
 		Menu_Fun_AutoDirectory.addActionListener(new ActionListener()
 		{
@@ -314,6 +316,15 @@ public class JavaMovie extends JFrame
 				}
 	            return component;
             }
+			@Override
+			public Object getValueAt(int row, int column) 
+			{
+				if(column == 2)
+				{
+					return "  " + super.getValueAt(row, column);
+				}
+				return super.getValueAt(row, column);
+			}
 		};
 		table.setCellSelectionEnabled(true);
 		table.setEnabled(false);
@@ -348,8 +359,10 @@ public class JavaMovie extends JFrame
 		// 欄位寬度
 		TableColumnModel tcm = table.getColumnModel();
 		tcm.getColumn(0).setPreferredWidth(200);
-		tcm.getColumn(1).setPreferredWidth(100);
+		tcm.getColumn(1).setPreferredWidth(120);
 		tcm.getColumn(2).setPreferredWidth(300);
+		tcm.getColumn(0).setMaxWidth(200);
+		tcm.getColumn(1).setMaxWidth(120);
 		
 		final int booleanWidth = 60;
 		tcm.getColumn(3).setPreferredWidth(booleanWidth);

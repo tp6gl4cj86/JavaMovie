@@ -1,5 +1,8 @@
 package com.olis;
 
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowFocusListener;
+import java.awt.event.WindowStateListener;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -180,7 +183,7 @@ public class Movie
 	{
 		LoadingDialog mLoadingDialog = new LoadingDialog();
 		mLoadingDialog.setVisible(true);
-
+		
 		try
         {
 			Class.forName("org.sqlite.JDBC");
@@ -211,7 +214,7 @@ public class Movie
 						}
 						else
 						{
-							chooseDirectory(AutoDirectoryFile, true);
+							Movie.chooseDirectory(AutoDirectoryFile, true);
 						}
 					}
 				}

@@ -14,7 +14,8 @@ public class LoadingDialog extends JDialog
 	public LoadingDialog()
 	{
 		getContentPane().setLayout(null);
-
+		setTitle("讀取資料中...");
+		
 		Font font = new Font("新細明體", Font.BOLD, 25);
 
 		JLabel label = new JLabel("讀取資料中...", SwingConstants.CENTER);
@@ -30,5 +31,7 @@ public class LoadingDialog extends JDialog
 		}
 		label.setFont(font);
 		getContentPane().add(label);
+		
 	}
+
 }

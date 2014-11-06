@@ -66,14 +66,14 @@ public class EditDialog extends JDialog
     {
 	    getContentPane().setLayout(null);
 
-//	    if(JavaMovie.OS == JavaMovie.OS_Windows)
+	    if(JavaMovie.OS == JavaMovie.OS_Windows)
 		{
 	    	setBounds(100, 100, 520, 340);
 		}
-//	    else if(JavaMovie.OS == JavaMovie.OS_Mac)
-//		{
-//	    	setBounds(100, 100, 500, 300);
-//		}
+	    else if(JavaMovie.OS == JavaMovie.OS_Mac)
+		{
+	    	setBounds(100, 100, 500, 300);
+		}
 
 		Font font = new Font("·s²Ó©úÅé", Font.BOLD, 17);
 		
