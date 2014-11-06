@@ -21,7 +21,7 @@ public class LoadingDialog extends JDialog
 		if (JavaMovie.OS == JavaMovie.OS_Windows)
 		{
 			setBounds(100, 100, 420, 240);
-			label.setBounds(0, 0, 420, 240);
+			label.setBounds(0, 0, 398, 185);
 		}
 		else if (JavaMovie.OS == JavaMovie.OS_Mac)
 		{

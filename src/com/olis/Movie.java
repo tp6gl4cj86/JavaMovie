@@ -179,7 +179,6 @@ public class Movie
 	public static void runAutoDirectory()
 	{
 		LoadingDialog mLoadingDialog = new LoadingDialog();
-		mLoadingDialog.setModal(true);
 		mLoadingDialog.setVisible(true);
 
 		try

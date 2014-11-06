@@ -66,14 +66,14 @@ public class EditDialog extends JDialog
     {
 	    getContentPane().setLayout(null);
 
-	    if(JavaMovie.OS == JavaMovie.OS_Windows)
+//	    if(JavaMovie.OS == JavaMovie.OS_Windows)
 		{
 	    	setBounds(100, 100, 520, 340);
 		}
-	    else if(JavaMovie.OS == JavaMovie.OS_Mac)
-		{
-	    	setBounds(100, 100, 500, 300);
-		}
+//	    else if(JavaMovie.OS == JavaMovie.OS_Mac)
+//		{
+//	    	setBounds(100, 100, 500, 300);
+//		}
 
 		Font font = new Font("新細明體", Font.BOLD, 17);
 		
@@ -84,25 +84,25 @@ public class EditDialog extends JDialog
 
 		moviedate = new JTextField();
 		moviedate.setFont(font);
-		moviedate.setBounds(90, 15, 200, 30);
+		moviedate.setBounds(95, 15, 200, 30);
 		getContentPane().add(moviedate);
 		moviedate.setColumns(10);
 
 		JLabel label_1 = new JLabel("影片名稱");
 		label_1.setFont(font);
-		label_1.setBounds(20, 52, 70, 20);
+		label_1.setBounds(20, 52, 75, 20);
 		getContentPane().add(label_1);
 
 		moviename = new JTextField();
 		moviename.setFont(font);
-		moviename.setBounds(90, 47, 200, 30);
+		moviename.setBounds(95, 47, 200, 30);
 		getContentPane().add(moviename);
 		moviename.setColumns(10);
 
 		autoParser = new JToggleButton("自動解析");
 		autoParser.setFont(font);
 		autoParser.setSelected(true);
-		autoParser.setBounds(20, 84, 270, 38);
+		autoParser.setBounds(20, 84, 275, 38);
 		getContentPane().add(autoParser);
 		
 		btnFileChooser = new JButton("選擇影片");
