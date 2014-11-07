@@ -10,7 +10,7 @@ public class LoadingDialog extends JDialog
 {
 	
     private static final long serialVersionUID = 1L;
-
+ 
 	public LoadingDialog()
 	{
 		getContentPane().setLayout(null);
