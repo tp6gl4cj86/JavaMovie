@@ -1,8 +1,5 @@
 package com.olis;
 
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowFocusListener;
-import java.awt.event.WindowStateListener;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Movie
-{
+{ 
 
 	public int     id;
 	public String  moviedate;
