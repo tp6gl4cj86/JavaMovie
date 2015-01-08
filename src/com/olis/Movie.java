@@ -178,6 +178,46 @@ public class Movie
 	
 	public static void runAutoDirectory()
 	{
+		try
+        {
+			Class.forName("org.sqlite.JDBC");
+			Connection connect = DriverManager.getConnection("jdbc:sqlite:JavaMovie.db");
+
+			Statement statement = connect.createStatement();
+			
+			ResultSet rs = null;
+			
+			File movieDirectory = new File(new File("Movie").getAbsolutePath());
+			if (movieDirectory.exists() && movieDirectory.isDirectory())
+			{
+				File[] AutoDirectoryFiles = movieDirectory.listFiles();
+				for(File AutoDirectoryFile : AutoDirectoryFiles)
+				{
+					if (AutoDirectoryFile.isDirectory() && AutoDirectoryFile.getName().length() >= 8)
+					{
+						String filename = AutoDirectoryFile.getName().substring(8);
+						rs = statement.executeQuery("SELECT * FROM MOVIE WHERE MOVIENAME = '" + filename + "'");
+						if (rs.next())
+						{
+							Movie.enableMovie(statement, rs.getInt("id"));
+						}
+						else
+						{
+							Movie.chooseDirectory(AutoDirectoryFile, true);
+						}
+					}
+				}
+			}
+			
+			rs.close();
+			statement.close();
+			connect.close();
+        }
+        catch (Exception e)
+        {
+        	e.printStackTrace();
+        }
+		
 		LoadingDialog mLoadingDialog = new LoadingDialog();
 		mLoadingDialog.setVisible(true);
 		
@@ -227,8 +267,8 @@ public class Movie
         }
 		finally
 		{
-			mLoadingDialog.setVisible(false);
-			mLoadingDialog.dispose();
+//			mLoadingDialog.setVisible(false);
+//			mLoadingDialog.dispose();
 		}
 	}
 	
@@ -247,7 +287,7 @@ public class Movie
 			for(File file : filelist)
 			{
 				String filename = file.getName();
-				if(!filename.substring(filename.indexOf(".")+1).equals("srt") || !filename.substring(filename.indexOf(".")+1).equals("ass"))
+				if(filename.indexOf(".") > 0 && !filename.substring(filename.indexOf(".")+1).equals("srt") && !filename.substring(filename.indexOf(".")+1).equals("ass"))
 				{					
 					if(filename.contains(moviename))
 					{
