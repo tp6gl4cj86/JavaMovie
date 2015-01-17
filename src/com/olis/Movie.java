@@ -267,7 +267,7 @@ public class Movie
         }
 		finally
 		{
-//			mLoadingDialog.setVisible(false);
+			mLoadingDialog.setVisible(false);
 //			mLoadingDialog.dispose();
 		}
 	}
